@@ -46,9 +46,12 @@
     }
     #ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
     else if($message == "ลาก่อน"){
+        $a=array("อย่าทิ้งกันไป","bye","ขับรถดีๆน่ะ","ลาก่อย","อยากไปไหนก็ไป");
+        $random_keys=array_rand($a,1);
+        
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "อย่าทิ้งกันไป";
+        $arrayPostData['messages'][0]['text'] = $a[$random_keys[0]];
         $arrayPostData['messages'][1]['type'] = "sticker";
         $arrayPostData['messages'][1]['packageId'] = "1";
         $arrayPostData['messages'][1]['stickerId'] = "131";
