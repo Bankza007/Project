@@ -8,6 +8,8 @@
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
     
+    $a = array('ไม่ให้ไป','ลาก่อย');
+    $random_keys=array_rand($a,1);
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
 #ตัวอย่าง Message Type "Text"
@@ -46,9 +48,10 @@
     }
     #ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
     else if($message == "ลาก่อน"){
+        
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "อืม";
+        $arrayPostData['messages'][0]['text'] = $a[$random_keys[0]];
         $arrayPostData['messages'][1]['type'] = "sticker";
         $arrayPostData['messages'][1]['packageId'] = "1";
         $arrayPostData['messages'][1]['stickerId'] = "131";
