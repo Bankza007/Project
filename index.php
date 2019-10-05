@@ -91,6 +91,5 @@ function replyMsg($arrayHeader,$arrayPostData){
         $result = curl_exec($ch);
         curl_close ($ch);
     }
-echo $a[$random_keys[0]]."<br>";
    exit;
 ?>
